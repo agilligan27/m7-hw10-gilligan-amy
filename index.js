@@ -12,12 +12,19 @@ console.log(cookies);
 
 var nameCookie = cookies.find(function(item){
   return item.startsWith('name=')
-})
+});
 
 if (nameCookie){
   nameSpan.textContent = nameCookie.split('=')[1]
-}
+};
 
+var notesCookie = cookies.find(function(item){
+  return item.startsWith('notes=')
+});
+
+if (notesCookie){
+  textarea.value = notesCookie.split('=')[1]
+};
 
 formEl.onsubmit = function(e) {
   // prevents form submission
