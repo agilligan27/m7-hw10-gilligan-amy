@@ -7,16 +7,25 @@ var textarea = document.querySelector('textarea')
 // Retrieve name and note content from cookies and localstorage
 // Then apply them to elements on the page
 // YOUR CODE HERE
+const cookies = document.cookie.split('; ')
+console.log(cookies);
+
+var nameCookie = cookies.find(function(item){
+  return item.startsWith('name=')
+})
+
+if (nameCookie){
+  nameSpan.textContent = nameCookie.split('=')[1]
+}
 
 
 formEl.onsubmit = function(e) {
   // prevents form submission
   e.preventDefault()
   // save name element's content to cookies
-  document.cookie = 'name=' + nameSpan.textContent;
-
   // save textarea's content to localstorage
   // YOUR CODE HERE
+  document.cookie = 'name=' + nameSpan.textContent;
   document.cookie = 'notes=' + textarea.value;
   // triggers thumbs up animation
   this.elements.save.classList.add('emoji')
