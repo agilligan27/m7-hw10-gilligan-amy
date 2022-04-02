@@ -8,6 +8,7 @@ var textarea = document.querySelector('textarea')
 // Then apply them to elements on the page
 // YOUR CODE HERE
 const cookies = document.cookie.split('; ')
+console.log(cookies)
 
 var nameCookie = cookies.find(function(item){
   return item.startsWith('name=')
@@ -21,7 +22,7 @@ var notesStored = localStorage.getItem('notes');
 
 if (notesStored) {
   textarea.value = notesStored;
-}
+};
 
 formEl.onsubmit = function(e) {
   // prevents form submission
@@ -33,22 +34,24 @@ formEl.onsubmit = function(e) {
   localStorage.setItem('notes', textarea.value)
   // triggers thumbs up animation
   this.elements.save.classList.add('emoji')
-}
+};
 
 
 clear.onclick = function() {
   // Clear textarea's value
   // Clear localstorage's content
   // YOUR CODE HERE
+  textarea.value = "";
+  localStorage.removeItem('notes');
 
   // triggers thumbs up animation
   this.classList.add('emoji')
-}
+};
 
 // this code allows repeated thumbs up animations
 function endThumbsUp() {
   this.classList.remove('emoji')
-}
+};
 
 formEl.elements.save.onanimationend = endThumbsUp
 clear.onanimationend = endThumbsUp
