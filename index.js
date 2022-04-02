@@ -8,7 +8,6 @@ var textarea = document.querySelector('textarea')
 // Then apply them to elements on the page
 // YOUR CODE HERE
 const cookies = document.cookie.split('; ')
-console.log(cookies)
 
 var nameCookie = cookies.find(function(item){
   return item.startsWith('name=')
