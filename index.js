@@ -22,13 +22,6 @@ var notesStored = localStorage.getItem('notes');
 if (notesStored) {
   textarea.value = notesStored;
 }
-//var notesCookie = cookies.find(function(item){
-  //return item.startsWith('notes=')
-//});
-
-//if (notesCookie){
-  //textarea.value = notesCookie.split('=')[1]
-//};
 
 formEl.onsubmit = function(e) {
   // prevents form submission
@@ -37,7 +30,6 @@ formEl.onsubmit = function(e) {
   // save textarea's content to localstorage
   // YOUR CODE HERE
   document.cookie = 'name=' + nameSpan.textContent;
-  //document.cookie = 'notes=' + textarea.value;
   localStorage.setItem('notes', textarea.value)
   // triggers thumbs up animation
   this.elements.save.classList.add('emoji')
