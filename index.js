@@ -8,7 +8,6 @@ var textarea = document.querySelector('textarea')
 // Then apply them to elements on the page
 // YOUR CODE HERE
 const cookies = document.cookie.split('; ')
-console.log(cookies);
 
 var nameCookie = cookies.find(function(item){
   return item.startsWith('name=')
@@ -18,13 +17,13 @@ if (nameCookie){
   nameSpan.textContent = nameCookie.split('=')[1]
 };
 
-var notesCookie = cookies.find(function(item){
-  return item.startsWith('notes=')
-});
+//var notesCookie = cookies.find(function(item){
+  //return item.startsWith('notes=')
+//});
 
-if (notesCookie){
-  textarea.value = notesCookie.split('=')[1]
-};
+//if (notesCookie){
+  //textarea.value = notesCookie.split('=')[1]
+//};
 
 formEl.onsubmit = function(e) {
   // prevents form submission
@@ -33,7 +32,8 @@ formEl.onsubmit = function(e) {
   // save textarea's content to localstorage
   // YOUR CODE HERE
   document.cookie = 'name=' + nameSpan.textContent;
-  document.cookie = 'notes=' + textarea.value;
+  //document.cookie = 'notes=' + textarea.value;
+  localStorage.setItem('notes', textarea.value)
   // triggers thumbs up animation
   this.elements.save.classList.add('emoji')
 }
