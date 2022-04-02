@@ -17,6 +17,11 @@ if (nameCookie){
   nameSpan.textContent = nameCookie.split('=')[1]
 };
 
+var notesStored = localStorage.getItem('notes');
+
+if (notesStored) {
+  textarea.value = notesStored;
+}
 //var notesCookie = cookies.find(function(item){
   //return item.startsWith('notes=')
 //});
